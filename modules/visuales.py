@@ -1,4 +1,5 @@
 import pygame
+from logica import *
 """
 funciones que se encargan de cargar los elementos visuales en la pantalla
 """
@@ -11,9 +12,7 @@ def crear_boton(pantalla, posicion, dimension, texto=None, fuente=None, path_ima
     boton["superficie"] = pygame.Surface(dimension)
     
     if path_imagen != None:
-        
         imagen = pygame.image.load(path_imagen)
-        #! error aca!!
         print(f"probando si cargan las imagenes...: {path_imagen}")
         
         boton["superficie"] = pygame.transform.scale(imagen, boton["dimension"])
@@ -27,6 +26,7 @@ def dibujar(boton):
     
 #==========================================================
 def crear_botones_imagenes(ventana_principal:tuple, imagenes:list, FILAS:int, COLUMNAS:int, TAMAÑO_BOTON, ESPACIO_ENTRE_BOTONES, TAMAÑO_VENTANA) -> list:
+    
     ancho_cuadricula = COLUMNAS * TAMAÑO_BOTON[0] + (COLUMNAS - 1) * ESPACIO_ENTRE_BOTONES
     alto_cuadricula = FILAS * TAMAÑO_BOTON[1] + (FILAS - 1) * ESPACIO_ENTRE_BOTONES
 
@@ -91,31 +91,31 @@ def enmarcar_imagen(amarillo,lista_amarillos,lista_usados,boton,x,y,color,COLOR_
     
 
 
-def encontrar_categoria (lista_amarillos,color,contador,lista_usados,guardar_boton,boton,categoria,bandera_primera_categoria,lista_categorias,x,y,verde,COLOR_PANTALLA,ventana_principal):
-    if bandera_primera_categoria == True and boton["estado"] != None:
-        print("entra en encontrar categoria")
-        guardar_boton.append(boton)
-        lista_usados.append(boton)
-        lista_categorias.append(categoria)
-        bandera_primera_categoria = False
+# def encontrar_categoria (lista_amarillos,color,contador,lista_usados,guardar_boton,boton,categoria,bandera_primera_categoria,lista_categorias,x,y,verde,COLOR_PANTALLA,ventana_principal):
+#     if bandera_primera_categoria == True and boton["estado"] != None:
+#         print("entra en encontrar categoria")
+#         guardar_boton.append(boton)
+#         lista_usados.append(boton)
+#         lista_categorias.append(categoria)
+#         bandera_primera_categoria = False
 
-    elif bandera_primera_categoria == False and boton["estado"] != None:
-        print("entra en encontrar resto categorias")
-        if boton["estado"] == True and boton != guardar_boton[0]:
-            if len(lista_categorias) > 0 and lista_categorias[-1] == categoria:  
+#     elif bandera_primera_categoria == False and boton["estado"] != None:
+#         print("entra en encontrar resto categorias")
+#         if boton["estado"] == True and boton != guardar_boton[0]:
+#             if len(lista_categorias) > 0 and lista_categorias[-1] == categoria:  
 
-                contador += 1
-                lista_usados.append(boton)
-                print("Las categorías son iguales.")
-            else:
-                #lista_usados.append(boton)
-                for boton in lista_usados:
-                    print("dasdas")
-                    x,y = boton["posicion"]
-                    boton ["estado"] = None
-                    enmarcar_imagen(lista_amarillos,lista_usados,boton,x,y,color,COLOR_PANTALLA,ventana_principal)
+#                 contador += 1
+#                 lista_usados.append(boton)
+#                 print("Las categorías son iguales.")
+#             else:
+#                 #lista_usados.append(boton)
+#                 for boton in lista_usados:
+#                     print("dasdas")
+#                     x,y = boton["posicion"]
+#                     boton ["estado"] = None
+#                     enmarcar_imagen(lista_amarillos,lista_usados,boton,x,y,color,COLOR_PANTALLA,ventana_principal)
 
-    return bandera_primera_categoria ,contador
+#     return bandera_primera_categoria ,contador
     
 
     

@@ -4,15 +4,12 @@ from modules.visuales import *
 from modules.datos import *
 from logica import *
 
+#------INICIO PYGAME---------
 pygame.init()
 
-"""
-NOTA:
-HABRIA QUE HACER QUE CUANDO SE HAGA CLICK EN UN BOTON SE MARQUEN DE COLOR PARA IDENTIFICARLOS, Y HACER QUE CADA VEZ QUE CLICKEAMOS EN UN BOTON PASE ALGO,
-"""
-VERDE = (0,255,0)
-AMARILLO = (255,255,0)
-
+#------CONSTANTES------------
+AMARILLO = (255, 255, 0)
+VERDE = (0, 255, 0)
 TAMAÑO_VENTANA = (800, 500)
 COLOR_PANTALLA = (49, 100, 247)
 TAMAÑO_BOTON = (100, 100)
@@ -20,8 +17,11 @@ ESPACIO_ENTRE_BOTONES = 10
 FILAS = 4
 COLUMNAS = 4
 
+
+#------TAMAÑO DE LA VENTANA DEL JUEGO------------
 ventana_principal = pygame.display.set_mode(TAMAÑO_VENTANA)
 
+#------LLAMADOS A LAS FUNCIONES QUE LEEN EL CSV CON LAS RUTAS DE LAS IMAGENES-------------
 lista_categorias = obtener_categorias()
 lista_limpia = limpiar_datos(lista_categorias)
 diccionario_categorias = transformar_lista_a_diccionario(lista_limpia)
@@ -29,8 +29,15 @@ diccionario_categorias = transformar_lista_a_diccionario(lista_limpia)
 nivel = 1
 imagenes = obtener_imagenes(diccionario_categorias, nivel)
 
-#aca parece que no se esta enviando correctamente la ruta "imagenes" a la funcion que crea los botones
-botones = crear_botones_imagenes(ventana_principal, imagenes, FILAS, COLUMNAS, TAMAÑO_BOTON, ESPACIO_ENTRE_BOTONES, TAMAÑO_VENTANA)
+#------CREACION DE CADA BOTON CON  IMAGEN---------
+botones = crear_botones_imagenes(
+    ventana_principal, 
+    imagenes, 
+    FILAS, 
+    COLUMNAS, 
+    TAMAÑO_BOTON, 
+    ESPACIO_ENTRE_BOTONES, 
+    TAMAÑO_VENTANA)
 # categorias_nivel = diccionario_categorias[nivel_actual]
 
 
