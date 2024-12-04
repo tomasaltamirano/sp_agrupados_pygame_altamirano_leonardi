@@ -41,7 +41,8 @@ bandera_juego = True
 bandera_primera_categoria = True
 guardar_boton = []
 lista_usados = []
-contador = 0
+contador = [0]
+
 lista_amarillos = []
 
 ventana_principal.fill(COLOR_PANTALLA)
@@ -52,19 +53,21 @@ while bandera_juego:
     #for boton in botones:
     #    dibujar(boton)
 
-    if contador == 3:
+    if contador[0] == 4:
         print(lista_usados)
         print("ganaste")
         for i in range (len(lista_usados)):
+            print(lista_usados)
             lista_usados[i]["estado"]= None
             x,y = lista_usados[i]["posicion"]
             lista_amarillos.append(lista_usados[i])
+            print("Aaaaaaa")
 
-            enmarcar_imagen(AMARILLO,lista_amarillos,lista_usados,lista_usados[i],x,y,AMARILLO,COLOR_PANTALLA,ventana_principal)
+            enmarcar_imagen(contador,AMARILLO,lista_amarillos,lista_usados,lista_usados[i],x,y,VERDE,COLOR_PANTALLA,ventana_principal)
 
         guardar_boton = []
         lista_categorias = []
-        contador = 0
+        contador = [0]
         bandera_primera_categoria = True
         
 
