@@ -41,3 +41,4 @@ def encontrar_categoria (lista_amarillos,color,contador,lista_usados,guardar_bot
                     enmarcar_imagen(lista_amarillos,lista_usados,boton,x,y,color,COLOR_PANTALLA,ventana_principal)
 
     return bandera_primera_categoria ,contador
+

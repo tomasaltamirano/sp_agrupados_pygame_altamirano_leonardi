@@ -18,6 +18,7 @@ FILAS = 4
 COLUMNAS = 4
 
 
+
 #------TAMAÑO DE LA VENTANA DEL JUEGO------------
 ventana_principal = pygame.display.set_mode(TAMAÑO_VENTANA)
 
@@ -40,6 +41,7 @@ botones = crear_botones_imagenes(
     TAMAÑO_VENTANA)
 # categorias_nivel = diccionario_categorias[nivel_actual]
 
+# lista_botones = [botones, comodines]
 
 pygame.display.set_caption("Agrupados")
 
