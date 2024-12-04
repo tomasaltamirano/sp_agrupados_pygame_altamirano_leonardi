@@ -5,7 +5,7 @@ funciones que se encargan de cargar los elementos visuales en la pantalla
 """
 def crear_boton(pantalla, posicion, dimension, texto=None, fuente=None, path_imagen = None):
     boton = {}
-    boton["estado"] = True
+    boton["estado"] = False
     boton["pantalla"] = pantalla
     boton["posicion"] = posicion #tupla
     boton["dimension"] = dimension #tupla
@@ -67,55 +67,77 @@ def seleccionar_imagenes(amarillo,lista_amarillos,contador,lista_usados,guardar_
                 
 
             bandera_primera_categoria, contador = encontrar_categoria(lista_amarillos,amarillo,contador,lista_usados,guardar_boton,boton,categoria,bandera_primera_categoria,lista_categorias,x,y,verde,COLOR_PANTALLA,ventana_principal)
-            enmarcar_imagen(amarillo,lista_amarillos,lista_usados,boton,x,y,verde,COLOR_PANTALLA,ventana_principal)
+            
+            enmarcar_imagen(contador,amarillo,lista_amarillos,lista_usados,boton,x,y,verde,COLOR_PANTALLA,ventana_principal)
             
             
                 
     return bandera_primera_categoria,contador
 
 
-def enmarcar_imagen(amarillo,lista_amarillos,lista_usados,boton,x,y,color,COLOR_PANTALLA,ventana_principal):
+def enmarcar_imagen(contador,amarillo,lista_amarillos,lista_usados,boton,x,y,color,COLOR_PANTALLA,ventana_principal):
     if boton["estado"] == True and boton not in lista_amarillos:
-        pygame.draw.rect(ventana_principal, color, (x-5,y-5,110,110))
-        print("activa")
+        numero = contador[0]
+        numero -= 1
+        contador[0] = numero
+        print(contador)
+        print("desactiva")
+
+        pygame.draw.rect(ventana_principal, COLOR_PANTALLA, (x-5,y-5,110,110))
         boton["estado"] = False
 
     elif boton["estado"] == False and boton not in lista_amarillos:
-        pygame.draw.rect(ventana_principal, COLOR_PANTALLA, (x-5,y-5,110,110))
-        print("desactiva")
+        #print(lista_amarillos)
+        pygame.draw.rect(ventana_principal, color, (x-5,y-5,110,110))
+
+        numero = contador[0]
+        print(numero)
+        numero += 1
+        contador[0] = numero
+
+        #contador[0] += 1
+        
+        print(contador)
+        print("activa")
+        
         boton["estado"] = True
     
     elif boton["estado"] == None:
-        pygame.draw.rect(ventana_principal, color, (x-5,y-5,110,110))
+        pygame.draw.rect(ventana_principal, amarillo, (x-5,y-5,110,110))
+        
         boton["estado"] = None
     
 
 
-# def encontrar_categoria (lista_amarillos,color,contador,lista_usados,guardar_boton,boton,categoria,bandera_primera_categoria,lista_categorias,x,y,verde,COLOR_PANTALLA,ventana_principal):
-#     if bandera_primera_categoria == True and boton["estado"] != None:
-#         print("entra en encontrar categoria")
-#         guardar_boton.append(boton)
-#         lista_usados.append(boton)
-#         lista_categorias.append(categoria)
-#         bandera_primera_categoria = False
+def encontrar_categoria (lista_amarillos,amarillo,contador,lista_usados,guardar_boton,boton,categoria,bandera_primera_categoria,lista_categorias,x,y,verde,COLOR_PANTALLA,ventana_principal):
 
-#     elif bandera_primera_categoria == False and boton["estado"] != None:
-#         print("entra en encontrar resto categorias")
-#         if boton["estado"] == True and boton != guardar_boton[0]:
-#             if len(lista_categorias) > 0 and lista_categorias[-1] == categoria:  
+    if bandera_primera_categoria == True and boton["estado"] != None:
+        
+        guardar_boton.append(boton)
+        lista_usados.append(boton)
+        lista_categorias.append(categoria)
+        bandera_primera_categoria = False
 
-#                 contador += 1
-#                 lista_usados.append(boton)
-#                 print("Las categorías son iguales.")
-#             else:
-#                 #lista_usados.append(boton)
-#                 for boton in lista_usados:
-#                     print("dasdas")
-#                     x,y = boton["posicion"]
-#                     boton ["estado"] = None
-#                     enmarcar_imagen(lista_amarillos,lista_usados,boton,x,y,color,COLOR_PANTALLA,ventana_principal)
+    elif bandera_primera_categoria == False and boton["estado"] != None:
+        
+        if boton["estado"] == False: #and boton != guardar_boton[0]:
+            
+            if len(lista_categorias) > 0 and lista_categorias[-1] == categoria:  
+                
+                #contador += 1
+                
+                lista_usados.append(boton)
+                print("Las categorías son iguales.")
+            else:
+                #lista_usados.append(boton)
+                for boton in lista_usados:
+                    
+                    x,y = boton["posicion"]
+                    boton ["estado"] = False
+                    enmarcar_imagen(contador,amarillo,lista_amarillos,lista_usados,boton,x,y,verde,COLOR_PANTALLA,ventana_principal)
+                    
 
-#     return bandera_primera_categoria ,contador
+    return bandera_primera_categoria ,contador
     
 
     
