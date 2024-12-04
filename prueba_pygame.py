@@ -1,5 +1,16 @@
 import pygame
+import random
 from modules.visuales import *
+from modules.datos import *
+from logica import *
+
+pygame.init()
+
+"""
+NOTA:
+HABRIA QUE HACER QUE CUANDO SE HAGA CLICK EN UN BOTON SE MARQUEN DE COLOR PARA IDENTIFICARLOS, Y HACER QUE CADA VEZ QUE CLICKEAMOS EN UN BOTON PASE ALGO,
+"""
+
 
 TAMAÑO_VENTANA = (800, 500)
 COLOR_PANTALLA = (49, 100, 247)
@@ -7,41 +18,22 @@ TAMAÑO_BOTON = (100, 100)
 ESPACIO_ENTRE_BOTONES = 10
 FILAS = 4
 COLUMNAS = 4
-IMAGENES = [
-    "imagenes/batidora.jpg","imagenes/bombero.jpg","imagenes/cafetera.jpg","imagenes/cerdo.jpg",
-    "imagenes/chef.jpg","imagenes/corazon.jpg","imagenes/diamante.jpg","imagenes/doctor.jpg",
-    "imagenes/gallina.jpg","imagenes/licuadora.jpg","imagenes/oveja.jpg","imagenes/picas.jpg",
-    "imagenes/policia.jpg","imagenes/tostadora.jpg","imagenes/trebol.jpg","imagenes/vaca.jpg"
-]
-
-
-
-pygame.init()
 
 ventana_principal = pygame.display.set_mode(TAMAÑO_VENTANA)
+
+lista_categorias = obtener_categorias()
+lista_limpia = limpiar_datos(lista_categorias)
+diccionario_categorias = transformar_lista_a_diccionario(lista_limpia)
+
+nivel = 1
+imagenes = obtener_imagenes(diccionario_categorias, nivel)
+
+#aca parece que no se esta enviando correctamente la ruta "imagenes" a la funcion que crea los botones
+botones = crear_botones_imagenes(ventana_principal, imagenes, FILAS, COLUMNAS, TAMAÑO_BOTON, ESPACIO_ENTRE_BOTONES, TAMAÑO_VENTANA)
+# categorias_nivel = diccionario_categorias[nivel_actual]
+
+
 pygame.display.set_caption("Agrupados")
-
-ancho_cuadricula = COLUMNAS * TAMAÑO_BOTON[0] + (COLUMNAS - 1) * ESPACIO_ENTRE_BOTONES
-alto_cuadricula = FILAS * TAMAÑO_BOTON[1] + (FILAS - 1) * ESPACIO_ENTRE_BOTONES
-
-margen_izquierdo = (TAMAÑO_VENTANA[0] - ancho_cuadricula) // 2 #podes usar un numero fijo y tambien anda
-margen_superior = (TAMAÑO_VENTANA[1] - alto_cuadricula) // 2
-
-
-botones = []
-for fila in range(FILAS):
-    for columna in range(COLUMNAS):
-        x = margen_izquierdo + columna * (TAMAÑO_BOTON[0] + ESPACIO_ENTRE_BOTONES)
-        y = margen_superior + fila * (TAMAÑO_BOTON[1] + ESPACIO_ENTRE_BOTONES)
-        
-        indice_imagen = fila * COLUMNAS + columna
-        boton = crear_boton(
-            pantalla = ventana_principal,
-            posicion = (x, y),
-            dimension = TAMAÑO_BOTON,
-            path_imagen=IMAGENES[indice_imagen]
-        )
-        botones.append(boton)
 
 
 bandera_juego = True 
@@ -51,9 +43,9 @@ while bandera_juego:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             bandera_juego = False
-        # elif evento.type == pygame.MOUSEBUTTONDOWN:
-        #     if boton["rectangulo"].collidepoint(evento.pos):
-        #         print("clickea2")
+        elif evento.type == pygame.MOUSEBUTTONDOWN:
+            if boton["rectangulo"].collidepoint(evento.pos):
+                print("clickea2")
     
     ventana_principal.fill(COLOR_PANTALLA)
     
@@ -64,3 +56,4 @@ while bandera_juego:
     
     
 pygame.quit()
+
