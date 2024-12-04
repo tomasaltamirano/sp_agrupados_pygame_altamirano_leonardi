@@ -24,7 +24,7 @@ pygame.display.set_caption("Agrupados")
 ancho_cuadricula = COLUMNAS * TAMAÑO_BOTON[0] + (COLUMNAS - 1) * ESPACIO_ENTRE_BOTONES
 alto_cuadricula = FILAS * TAMAÑO_BOTON[1] + (FILAS - 1) * ESPACIO_ENTRE_BOTONES
 
-margen_izquierdo = (TAMAÑO_VENTANA[0] - ancho_cuadricula) // 2
+margen_izquierdo = (TAMAÑO_VENTANA[0] - ancho_cuadricula) // 2 #podes usar un numero fijo y tambien anda
 margen_superior = (TAMAÑO_VENTANA[1] - alto_cuadricula) // 2
 
 
