@@ -378,21 +378,6 @@ def usar_comodines(eleccion_usuario:str, lista_palabras:list, lista_repetidos: l
     lista = [bandera_comodin_personalizado,bandera_comodin_palabra_categoria,bandera_emparejar_palabras,puntos]
     return lista
 
-# def acomodar_matriz_por_abc(matriz,lista_palabras):
-#     for i in range(len(lista_palabras)):
-#         for j in range(i+1,len(lista_palabras)):
-#             if lista_palabras[i] > lista_palabras[j]:
-#                 aux = lista_palabras[i]
-#                 lista_palabras[i] = lista_palabras[j]
-#                 lista_palabras[j] = aux
-    
-#     for i in range(len(matriz)):
-#         for j in range(len(matriz[0])):
-#             matriz[i][j] = lista_palabras[0:16]
-#     print(matriz)
-
-#def cargar_matriz_ordenada(lista_palabras):
-
 
 def bubble_sort_matriz_algoritmica(matriz_principal:list)-> list:
     """recibe matriz principal y prdena todos sus elementos alfabeticamente
@@ -417,6 +402,5 @@ def bubble_sort_matriz_algoritmica(matriz_principal:list)-> list:
                 matriz_principal[i][columnas - 1], matriz_principal[i + 1][0] = matriz_principal[i + 1][0], matriz_principal[i][columnas - 1]
                 #print(matriz_principal)
     return matriz_principal
-
 
 
