@@ -63,14 +63,14 @@ while bandera_juego:
     #    dibujar(boton)
 
     if contador[0] == 4:
-        print(lista_usados)
+        
         print("ganaste")
         for i in range (len(lista_usados)):
-            print(lista_usados)
+            
             lista_usados[i]["estado"]= None
             x,y = lista_usados[i]["posicion"]
             lista_amarillos.append(lista_usados[i])
-            print("Aaaaaaa")
+            
 
             enmarcar_imagen(contador,AMARILLO,lista_amarillos,lista_usados,lista_usados[i],x,y,VERDE,COLOR_PANTALLA,ventana_principal)
 
