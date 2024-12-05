@@ -1,4 +1,8 @@
-1,electrodomesticos,imagenes/batidora.jpg,imagenes/cafetera.jpg,imagenes/licuadora.jpg,imagenes/tostadora.jpg
-1,animales,imagenes/cerdo.jpg,imagenes/gallina.jpg,imagenes/oveja.jpg,imagenes/vaca.jpg
-1,profesiones,imagenes/bombero.jpg,imagenes/chef.jpg,imagenes/doctor.jpg,imagenes/policia.jpg
-1,simbolos,imagenes/diamante.jpg,imagenes/corazon.jpg,imagenes/picas.jpg,imagenes/trebol.jpg
+1,electrodomesticos,imagenes/electrodomestico_1.jpg,imagenes/electrodomestico_2.jpg,imagenes/electrodomestico_3.jpg,imagenes/electrodomestico_4.jpg
+1,animales_campo,imagenes/animal_campo_1.jpg,imagenes/animal_campo_2.jpg,imagenes/animal_campo_3.jpg,imagenes/animal_campo_4.jpg
+1,profesiones,imagenes/profesion_1.jpg,imagenes/profesion_2.jpg,imagenes/profesion_3.jpg,imagenes/profesion_4.jpg
+1,simbolos,imagenes/carta_1.jpg,imagenes/carta_2.jpg,imagenes/carta_3.jpg,imagenes/carta_4.jpg
+2,monumentos,imagenes/monumento_1.jpg,imagenes/monumento_2.jpg,imagenes/monumento_3.jpg,imagenes/monumento_4.jpg
+2,relojes,imagenes/reloj_1.jpg,imagenes/reloj_2.jpg,imagenes/reloj_3.jpg,imagenes/reloj_4.jpg
+2,origami,imagenes/origami_1.jpg,imagenes/origami_2.jpg,imagenes/origami_3.jpg,imagenes/origami_4.jpg
+2,emojis,imagenes/emoji_1.jpg,imagenes/emoji_2.jpg,imagenes/emoji_3.jpg,imagenes/emoji_4.jpg
