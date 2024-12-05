@@ -70,6 +70,7 @@ while bandera_juego:
             print(f"contando:{contador}")
             if contador[0] == 4:
                 print(f"Filas completadas: {filas_completadas}")
+                #! aca podriamos tener una funcion que muestre un mensaje en pantalla indicando que completo una fila con exito.
                 filas_completadas += 1
                 
                 if filas_completadas == 4:
