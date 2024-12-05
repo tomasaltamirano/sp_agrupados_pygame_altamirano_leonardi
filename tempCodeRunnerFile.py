@@ -1,11 +1,1 @@
-#------CONSTANTES------------
-AMARILLO = (255, 255, 0)
-VERDE = (0, 255, 0)
-TAMAÑO_VENTANA = (800, 500)
-COLOR_PANTALLA = (49, 100, 247)
-TAMAÑO_BOTON = (100, 100)
-ESPACIO_ENTRE_BOTONES = 10
-FILAS = 4
-COLUMNAS = 4
-nivel = 1
-bandera_juego = True 
+ventana_principal
