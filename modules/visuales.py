@@ -182,8 +182,8 @@ def encontrar_categoria (lista_amarillos,amarillo,contador,lista_usados,guardar_
 def verificar_contador(contador,lista_usados,amarillo,lista_amarillos,lista_categorias, verde,COLOR_PANTALLA,ventana_principal):
     if contador[0] == 4:
         # lista_categorias.clear()
-        # lista_amarillos.clear()
-        # lista_usados.clear()  # Limpia las listas.
+        lista_amarillos.clear()
+        lista_usados.clear()  # Limpia las listas.
         # print("esta es la lista de usados" ,lista_usados)
         for boton in lista_usados:
             lista_amarillos.append(boton)
